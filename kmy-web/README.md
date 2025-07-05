@@ -1,36 +1,150 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+好的！以下是“天穹编织社官网”的**完整 README.md** 模板，涵盖从环境准备、安装、配置到启动、常见问题、贡献等所有主要部分，方便你直接使用或按需修改：
 
-## Getting Started
+````markdown
+# 天穹编织社官网
 
-First, run the development server:
+天穹编织社官网是基于 NestJS 后端框架和 Tailwind CSS 前端样式构建的现代化网站，旨在为用户提供优质的技术展示与服务平台。
+
+---
+
+## 环境准备
+
+### 1. 安装 Node.js
+
+- 推荐使用 Node.js 版本：**v20.18.0**
+- 官方下载地址：[https://nodejs.org/](https://nodejs.org/)
+
+安装完成后，在终端执行：
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+node -v
+# 应显示 v20.18.0
+
+npm -v
+# 推荐使用 npm 版本 10.9.3
+````
+
+### 2. 安装 NestJS CLI
+
+NestJS 是项目的后端核心框架。建议全局安装 NestJS CLI：
+
+```bash
+npm install -g @nestjs/cli
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+确认安装：
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+nest -v
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 项目安装
 
-To learn more about Next.js, take a look at the following resources:
+1. 克隆项目代码：
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+git clone https://your-repo-url.git
+cd your-project-folder
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. 安装依赖：
 
-## Deploy on Vercel
+```bash
+npm install
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Tailwind CSS 安装与配置
+
+1. 安装 Tailwind CSS 及相关依赖：
+
+```bash
+npm install -D tailwindcss postcss autoprefixer
+```
+
+2. 初始化 Tailwind CSS 配置：
+
+```bash
+npx tailwindcss init -p
+```
+
+该命令会生成：
+
+* `tailwind.config.js`
+* `postcss.config.js`
+
+3. 在项目的入口 CSS 文件中添加 Tailwind 指令，如 `src/styles.css`：
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+4. 确保构建工具正确处理 Tailwind（根据项目使用的打包工具，如 Webpack、Vite、NestJS 相关构建等配置）。
+
+---
+
+## 项目启动
+
+* 开发环境启动：
+
+```bash
+npm run start:dev
+```
+
+* 浏览器访问：
+
+```
+http://localhost:3000
+```
+
+---
+
+## 常见问题
+
+* **找不到 `tailwindcss` 命令**
+
+  通过 `npx tailwindcss` 运行 Tailwind 相关命令，避免全局命令未注册导致的问题。
+
+* **npm 或 Node 版本不兼容**
+
+  请确认 Node.js 版本为 `v20.18.0`，npm 版本为 `10.9.3`，版本过低或过高可能导致依赖安装失败或运行异常。
+
+* **安装依赖失败**
+
+  尝试删除 `node_modules` 文件夹和 `package-lock.json` 文件，重新执行 `npm install`。
+
+---
+
+## 贡献指南
+
+欢迎贡献代码和建议！请遵循以下流程：
+
+1. Fork 本仓库
+2. 新建分支 `feature/你的功能名`
+3. 提交代码并推送到你的 Fork
+4. 提交 Pull Request 到主仓库
+
+---
+
+## 许可证
+
+本项目采用 MIT 许可证，详情见 LICENSE 文件。
+
+---
+
+## 联系方式
+
+
+
+---
+
+## 致谢
+
+感谢所有支持和贡献天穹编织社官网的朋友们！
+
+
