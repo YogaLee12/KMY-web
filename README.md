@@ -1,13 +1,8 @@
-明白了！你是使用了 **Next.js 13+ 的 App Router（即 `app` 目录）** 模式来创建项目。因此我来为你重新整理一份更符合 **App Router 架构** 的 `README.md` 文件。
-
----
-
-````md
 # KMY Web
 
-KMY Web 是「天穹编织社」的官方网站，使用 [Next.js App Router](https://nextjs.org/docs/app/building-your-application/routing) 构建，展示我们的团队、服务与项目，建立专业的在线形象。
+KMY Web 是「」的官方网站，使用 [Next.js App Router](https://nextjs.org/docs/app/building-your-application/routing) 构建，展示我们的团队、服务与项目，建立专业的在线形象。
 
-> 🧵「每一行代码，都是世界的一缕天空」
+> 🧵「」
 
 ---
 
