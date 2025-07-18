@@ -17,10 +17,12 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 		<body
-			className={`${inter.className} antialiased`} 
+			className={`${inter.className} antialiased bg-purple-900 min-h-screen h-full`} 
 		>
 			<TopNav />
+			<div className="mt-[100px] bg-purple-900 px-40 w-full flex flex-row items-center justify-between">
 			{children}
+			</div>
 		</body>
 		</html>
 	);

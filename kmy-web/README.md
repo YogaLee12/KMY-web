@@ -91,7 +91,7 @@ npx tailwindcss init -p
 * 开发环境启动：
 
 ```bash
-npm run start:dev
+npm run dev
 ```
 
 * 浏览器访问：
