@@ -1,6 +1,6 @@
-# KMY Web
+# SkyNode web
 
-KMY Web 是「」的官方网站，使用 [Next.js App Router](https://nextjs.org/docs/app/building-your-application/routing) 构建，展示我们的团队、服务与项目，建立专业的在线形象。
+SkyNode Web 是「天穹编织社」的官方网站，使用 [Next.js App Router](https://nextjs.org/docs/app/building-your-application/routing) 构建，展示我们的团队、服务与项目，建立专业的在线形象。
 
 > 🧵「」
 
@@ -92,7 +92,7 @@ npm start
 
 ## 👨‍👨‍👧‍👦 项目团队
 
-「」团队成员：
+「天穹编织社」团队成员：
 
 * **King** – 
 * **Yoga** – 
