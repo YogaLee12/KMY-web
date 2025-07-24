@@ -13,6 +13,8 @@ module.exports = {
       fontFamily: {
         cursive: ['cursive'], 
       },
+
+      
     },
   },
     plugins: [],
