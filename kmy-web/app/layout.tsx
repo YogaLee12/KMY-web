@@ -1,29 +1,26 @@
-import type { Metadata } from "next"
-import "./globals.css"
-import { inter } from "@/app/ui/fonts"
-import TopNav from "@/app/ui/hearder";
+// layout.tsx
+'use client';
 
+import { usePathname } from 'next/navigation';
+import clsx from 'clsx';
+import TopNav from './ui/hearder';
+import './globals.css';
 
-export const metadata: Metadata = {
-	title: "SkyNode Studio|天穹编织社",
-	description: "每一行代码，都是世界的一缕天空",
-};
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
 
-export default function RootLayout({
-	children,
-	}: Readonly<{
-	children: React.ReactNode;
-	}>) {
-	return (
-		<html lang="en">
-		<body
-			className={`${inter.className} antialiased bg-purple-900 min-h-screen h-full`} 
-		>
-			<TopNav />
-			<div className="mt-[100px] bg-purple-900 px-40 w-full flex flex-row items-center justify-between">
-			{children}
-			</div>
-		</body>
-		</html>
-	);
+  const bodyClass = clsx(
+    'antialiased min-h-screen h-full',
+    pathname === '/' && "bg-[url('/index-background1.png')] bg-no-repeat bg-top",
+	pathname === '/contact' && "bg-[url('/background2.png')] bg-no-repeat bg-top",
+  );
+
+  return (
+    <html lang="en">
+      <body className={bodyClass}>
+        <TopNav />
+        <div className="mt-[100px]">{children}</div>
+      </body>
+    </html>
+  );
 }

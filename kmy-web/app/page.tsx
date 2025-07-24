@@ -9,7 +9,7 @@ import IndexProjectTemp from "./ui/indexSection/projectTemp";
 
 export default function Home() {
 	return (
-		<main className="w-full bg-purple-700 min-h-screen text-white ">
+		<main className="w-full min-h-screen text-white ">
 			{/* Focus Point Ares */}
 			<IndexFocusPoint/>
 
