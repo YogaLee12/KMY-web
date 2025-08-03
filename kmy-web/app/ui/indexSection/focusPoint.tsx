@@ -91,13 +91,13 @@ export default function IndexFocusPoint() {
 				viewport={{ once: true, amount: 0.2 }}
 				className="hidden md:flex items-center justify-center w-1/2"
 			>
-				<Image
-					className="ml-60 mt-20"
-					src="/Figure1.png"
-					alt="figure1"
-					width={502}
-					height={836}
-				/>
+            <Image
+                 src="/Figure1.png"
+                 alt="figure1"
+                 width={502}
+                 height={836}
+                 className="w-[30vw] h-auto ml-[10vw] mt-1vw"
+             />
 			</motion.div>
 		</section>
 	);

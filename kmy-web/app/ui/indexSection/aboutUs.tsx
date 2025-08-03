@@ -14,22 +14,25 @@ export default function IndexAboutUs() {
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
         viewport={{ once: true, amount: 0.2 }}
-        className="hidden md:flex items-center justify-center w-1/2"
+        className="hidden md:flex items-center justify-center w-1/2 pr-40"
       >
-        <Image
-          className="ml-30 -mt-3"
-          src="/goal.png"
-          alt="Our goal"
-          width={521 * 0.8}
-          height={422 * 0.8}
-        />
-        <Image
-          className="ml-10 -mt-3"
-          src="/Table.png"
-          alt="Table with logo on it"
-          width={413}
-          height={413}
-        />
+       {/* Our goal */}
+<Image
+  className="w-[30vw] h-auto ml-[8vw] -mt-[1vw] max-w-[416px]"
+  src="/goal.png"
+  alt="Our goal"
+  width={521 * 0.8}  // = 416.8px
+  height={422 * 0.8} // = 337.6px
+/>
+
+{/* Table with logo on it */}
+<Image
+  className="w-[25vw] h-auto ml-[4vw] -mt-[1vw] max-w-[413px]"
+  src="/Table.png"
+  alt="Table with logo on it"
+  width={413}
+  height={413}
+/>
       </motion.div>
 
       {/* 文字区域 */}
