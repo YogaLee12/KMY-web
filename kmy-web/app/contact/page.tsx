@@ -3,12 +3,12 @@ import Image from 'next/image'
 
 export default function ContactPage() {
   return (
-    <main className="overflow-x-hidden px-[10vw] py-[8vh]">
+    <main className="overflow-x-hidden  px-[10vw] py-[8vh] md:bg-[#603cf7] lg:bg-transparent z-0">
       {/* 顶部联系介绍区 */}
-      <section className="flex flex-col lg:flex-row justify-between items-center gap-12">
+      <section className="flex flex-col md:flex-row lg:flex-row justify-between items-center lg:gap-12 md:gap-3">
         {/* 左侧文字 */}
-        <div className="lg:w-[50%] text-center lg:text-left space-y-6">
-          <h1 className="text-[6rem] font-bold text-white">Let&apos;s get in touch</h1>
+        <div className="lg:w-[50%] md:w-[120%] text-center lg:text-left space-y-6 pb-10 md:pb-0 lg:pd-0">
+          <h1 className="lg:text-[6rem] text-[6rem] md:text-[3rem] font-bold text-white">Let&apos;s get in touch</h1>
           <p
             style={{ fontFamily: 'cursive' }}
             className="w-[90%] leading-loose text-3xl text-[#f0f0f0]"
@@ -96,13 +96,13 @@ export default function ContactPage() {
     />
   </a>
     {/* 图片人物 */}
-  <div className="absolute -bottom-10 right-0 z-40 mr-20">
+  <div className="absolute lg:-bottom-10 lg:right-0 md:-bottom-10 md:-right-20 lg:z-20 hidden md:block md:mr-20 ">
     <Image
       src="/Figure2.png"
       alt="Character"
       width={268}
       height={531}
-      className="object-contain"
+      className="object-contain md:w-60 md:pb-20 "
     />
   </div>
 </div>
@@ -111,7 +111,7 @@ export default function ContactPage() {
       </section>
 
       {/* 表单区域，添加 id="form" */}
-      <section id="form" className="w-full mt-[40vh]">
+      <section id="form" className="w-full md:mt-[24rem] mt-[7vh]">
         <div className="relative bg-gradient-to-b from-[#603cf7] to-[#706ac2] text-white rounded-2xl shadow-lg p-10 max-w-8xl mx-auto">
           <h2 className="text-5xl font-semibold mb-2">Enquiry form</h2>
           <p className="mb-8 text-lg">

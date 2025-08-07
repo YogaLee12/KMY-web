@@ -47,21 +47,21 @@ export default function ExamplesPage() {
             ${index % 2 === 0 ? 'bg-white' : 'bg-gray-100'}`}
         >
           {/* 左侧内容 */}
-          <div className="lg:w-[30%] text-center lg:text-left pl-10">
-            <h2 className="text-[3rem] font-bold tracking-tight text-[#44305a] mb-4">{project.title}</h2>
-            <p className="text-gray-600 mb-10 max-w-[30rem]">{project.description}</p>
+          <div className="lg:w-[30%] text-center lg:text-left md:pl-10">
+            <h2 className="text-[2.5rem] md:text-[3rem] font-bold tracking-tight text-[#44305a] mb-4">{project.title}</h2>
+            <p className="text-gray-600 mb-10 max-w-[30rem] text-[2rem] md:text-[1.3rem]">{project.description}</p>
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-6 py-2 bg-[#44305a] text-white rounded-full shadow hover:bg-[#603cf7] transition"
+              className="inline-block px-6 py-2 bg-[#44305a] text-white rounded-full shadow hover:bg-[#603cf7] transition md:text-[1.3rem] text-[1.6rem]"
             >
               VIEW LIVE SITE
             </a>
           </div>
 
           {/* 右侧图组 */}
-<div className="group grid grid-cols-3 gap-4 lg:w-[70%] pr-10">
+<div className="group grid md:grid-cols-3 gap-4 md:w-[70%] md:pr-10">
   {project.images.map((img, index) => (
 <Link
   href={`/examples/${project.id}`}
@@ -73,7 +73,7 @@ export default function ExamplesPage() {
         alt={img.alt}
         width={300}
         height={300}
-        className="rounded-md shadow-md w-full h-auto object-cover aspect-square"
+        className="rounded-md shadow-md w-[60vw] md:w-[20vw] h-auto object-cover aspect-square"
       />
     </Link>
   ))}

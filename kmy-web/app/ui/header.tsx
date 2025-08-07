@@ -10,31 +10,18 @@ import logoHorizontal from '@/public/logo-horizontal.svg';
 
 export default function TopNav() {
   const pathname = usePathname();
-
   const [isScrolling, setIsScrolling] = useState(false);
-  const [hasScrolled, setHasScrolled] = useState(false); // 新增状态
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-
-      // 判断是否滚动过
-      if (scrollY > 0 ) {
-        setHasScrolled(true);
-      }else {
-        setHasScrolled(false);
-      }
-
-      // 正在滚动中
+      setHasScrolled(scrollY > 0);
       setIsScrolling(true);
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-
-      scrollTimeoutRef.current = setTimeout(() => {
-        setIsScrolling(false);
-      }, 100);
+      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+      scrollTimeoutRef.current = setTimeout(() => setIsScrolling(false), 100);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -46,30 +33,36 @@ export default function TopNav() {
 
   const isTransparentRoute = pathname === '/' || pathname === '/contact';
 
-  const headerClass = clsx(
-    'fixed top-0 px-[60px] h-[100px] w-full pt-[2%] pb-0 z-50 transition-all duration-300',
-    {
-      'bg-[#603cf7]': !isTransparentRoute || hasScrolled,
-      'bg-[#603cf7]/80 backdrop-blur-md': isScrolling ,
-      'bg-transparent': isTransparentRoute && !isScrolling && !hasScrolled,
-    }
-  );
+const headerClass = clsx(
+  'fixed top-0 left-0 w-screen h-[10vh] md:h-[100px] pt-[2%] pb-0 transition-all duration-300',
+  {
+    'ww-screen h-screen': menuOpen,
+    'z-[60]': !menuOpen,
+    'z-[30]': menuOpen,
+    'bg-[#603cf7]': !isTransparentRoute || hasScrolled,
+    'bg-[#603cf7]/80 backdrop-blur-md': isScrolling,
+    'bg-transparent': (isTransparentRoute && !isScrolling && !hasScrolled),
+    
+  }
+);
 
   return (
-    <header className={headerClass}>
-      <nav className="max-w-full mx-auto h-full flex flex-row items-center justify-between">
-        <Link href="/#">
-          <Image
-            src={logoHorizontal}
-            alt="Logo"
-            className="h-25 w-auto mb-10"
-          />
-        </Link>
-
-        <NavLinks />
-      </nav>
-    </header>
+    <>
+      <header className={headerClass}>
+       <nav className="max-w-full mx-auto h-full  flex flex-col md:flex-row md:items-center justify-between">
+          <Link href="/#">
+            <Image
+              src={logoHorizontal}
+              alt="Logo"
+              className="md:h-25 w-auto md:mb-10 hidden md:block"
+            />
+          </Link>
+          <NavLinks menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        </nav>
+      </header>
+    </>
   );
 }
+
 
 

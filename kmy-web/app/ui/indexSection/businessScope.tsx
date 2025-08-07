@@ -51,13 +51,13 @@ export default function BusinessScope() {
               <img
                 src={item.icon}
                 alt={item.title}
-                className="w-12 h-12 transition-transform duration-300 ease-in-out group-hover:scale-130"
+                className="w-15 h-15 md:w-12 md:h-12 transition-transform duration-300 ease-in-out group-hover:scale-130"
               />
             </div>
-            <h3 className="text-xl font-semibold mt-3 mb-4 text-[#44305a] group-hover:!text-white">
+            <h3 className="text-[2rem] md:text-xl font-semibold mt-3 mb-4 text-[#44305a] group-hover:!text-white">
               {item.title}
             </h3>
-            <p className="text-sm leading-relaxed text-[#44305a] group-hover:!text-white">
+            <p className=" text-[1.2rem] md:text-sm leading-relaxed text-[#44305a] group-hover:!text-white">
               <strong>Lorem ipsum</strong> {item.desc}{' '}
               <strong>et dolore</strong>
             </p>

@@ -1,29 +1,50 @@
 'use client';
 import Footer from "./ui/footer";
 import { usePathname } from 'next/navigation';
-import { useEffect} from 'react'; 
+import { useEffect, useState } from 'react'; 
 import clsx from 'clsx';
 import TopNav from './ui/header';
 import './globals.css';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const [isMobile, setIsMobile] = useState(false);
 
-useEffect(() => {
-  const setFontSize = () => {
-    const width = window.innerWidth;
-    const baseSize = 15; // 100px 作为设计稿基准宽度（1920 或 1440 的话就是 100）
-    const designWidth = 1920; // 你设计稿的宽度
+  // 监听窗口宽度 → 设置字体和是否Mobile
+  useEffect(() => {
+    const updateLayout = () => {
+      const width = window.innerWidth;
 
-    const newFontSize = (width / designWidth) * baseSize;
-    document.documentElement.style.fontSize = `${newFontSize}px`;
-  };
+      // 设置字体大小
+      let baseSize: number;
+      let designWidth: number;
 
-  setFontSize(); // 初始调用
-  window.addEventListener('resize', setFontSize);
+      if (width >= 1024) {
+        // PC
+        baseSize = 15;
+        designWidth = 1920;
+      } else if (width >= 768) {
+        // Tablet
+        baseSize = 12;
+        designWidth = 1024;
+      } else {
+        // Mobile
+        baseSize = 10;
+        designWidth = 375;
+      }
 
-  return () => window.removeEventListener('resize', setFontSize);
-}, []);
+      const newFontSize = (width / designWidth) * baseSize;
+      document.documentElement.style.fontSize = `${newFontSize}px`;
+
+      // 设置是否Mobile
+      setIsMobile(width < 768);
+    };
+
+    updateLayout(); // 初始调用
+    window.addEventListener('resize', updateLayout);
+
+    return () => window.removeEventListener('resize', updateLayout);
+  }, []);
 
   // 动态背景图路径判断
   const getBackgroundImage = () => {
@@ -32,30 +53,40 @@ useEffect(() => {
     return undefined;
   };
 
-  // 动态类名
   const bodyClass = clsx(
     'antialiased min-h-screen w-full h-full overflow-x-hidden transition-all duration-300',
     'bg-no-repeat bg-top bg-center'
   );
+let bodyStyle: React.CSSProperties;
 
-  // 设置背景样式，宽度始终覆盖整个body宽度
-  const bodyStyle: React.CSSProperties = {
+if (!isMobile) {
+  // 非 Mobile：设置背景图
+  bodyStyle = {
     backgroundImage: getBackgroundImage(),
-    backgroundSize: '100% auto',  // 宽度 100%，高度自适应
+    backgroundSize: '100% auto',
     backgroundPosition: 'top center',
     backgroundRepeat: 'no-repeat',
   };
+} else if (pathname === '/'|| pathname === '/contact') {
+  // Mobile 且首页：设置纯色背景
+  bodyStyle = {
+    backgroundColor: '#603cf7',
+  };
+} else {
+  // Mobile 且非首页：无背景
+  bodyStyle = {};
+}
 
   return (
     <html lang="en">
       <body className={bodyClass} style={bodyStyle}>
         <TopNav />
         <div className="mt-[100px] min-h-[100vh]">{children}</div>
-        			{/* Footer */}
-			<Footer/>
+        <Footer />
       </body>
     </html>
   );
 }
+
 
 

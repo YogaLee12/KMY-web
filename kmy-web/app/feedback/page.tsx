@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination } from 'swiper/modules'
+import { Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -24,10 +24,10 @@ export default function FeedbackPage() {
       {/* Swiper Carousel */}
       <section className="mb-[10vh]">
         <Swiper
-          modules={[Navigation, Pagination]}
+          modules={[ Pagination]}
           spaceBetween={30}
           slidesPerView={1}
-          navigation
+    
           pagination={{ clickable: true }}
           breakpoints={{
             768: { slidesPerView: 2 },
