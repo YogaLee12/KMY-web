@@ -1,5 +1,5 @@
 import "./globals.css"
-import Footer from "./ui/footer";
+
 import BusinessScope from "./ui/indexSection/businessScope";
 import IndexAboutUs from "./ui/indexSection/aboutUs";
 import IndexFocusPoint from "./ui/indexSection/focusPoint";
@@ -8,8 +8,9 @@ import IndexProjectTemp from "./ui/indexSection/projectTemp";
 
 
 export default function Home() {
+	
 	return (
-		<main className="w-full bg-purple-700 min-h-screen text-white ">
+		<main className="w-full min-h-screen text-white ">
 			{/* Focus Point Ares */}
 			<IndexFocusPoint/>
 
@@ -25,8 +26,7 @@ export default function Home() {
 			{/* Founders */}
 			<Founders/>
 			
-			{/* Footer */}
-			<Footer/>
+
 		</main>
 		);
 	}

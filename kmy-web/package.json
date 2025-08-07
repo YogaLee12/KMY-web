@@ -11,12 +11,15 @@
   "dependencies": {
     "@tailwindcss/cli": "^4.1.11",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.23.7",
     "next": "15.3.5",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "swiper": "^11.2.10"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
